@@ -1,0 +1,173 @@
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+    background: radial-gradient(#11114e, #000);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+/* Contêiner para a animação de corações */
+.coracoes-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Garante que os corações fiquem atrás do conteúdo */
+    overflow: hidden;
+}
+
+/* Estilos do carrossel */
+.carousel {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-container img {
+    min-width: 100%;
+    transition: transform 0.5s;
+    border-radius: 20px;
+}
+
+.carousel-container img {
+    max-width: 80%; /* Reduz o tamanho da imagem para 80% da largura do contêiner */
+    max-height: 400px; /* Limite máximo de altura */
+    object-fit: cover; /* Mantém a proporção sem esticar a imagem */
+    margin: auto; /* Centraliza a imagem dentro do contêiner */
+    transition: transform 0.5s;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+@media (max-width: 600px) {
+    .carousel-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Texto de descrição */
+p {
+    font-size: 1.2rem;
+    color: white;
+    margin: 10px;
+    padding: 0 15px;
+    z-index: 1; /* Garante que o texto fique acima dos corações */
+    position: relative;
+}
+
+#tempoDecorrido {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilo do coração */
+.coracao {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(-45deg);
+    animation: cair linear infinite;
+}
+
+.coracao::before,
+.coracao::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.coracao::before {
+    top: -10px;
+    left: 0;
+}
+
+.coracao::after {
+    top: 0;
+    left: 10px;
+}
+
+/* Animação de queda */
+@keyframes cair {
+    to {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .coracao {
+        width: 15px;
+        height: 15px;
+    }
+
+    .coracao::before,
+    .coracao::after {
+        width: 15px;
+        height: 15px;
+    }
+
+        img {
+            width: 90%;
+            max-width: 200px;
+            margin-top: 10px;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #tempoDecorrido {
+        font-size: 1.3rem;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+      }
+      
+      body {
+        overflow: hidden;
+      }
